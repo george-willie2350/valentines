@@ -29,14 +29,16 @@
             align-items: center;
             justify-content: center;
             flex-direction: column;
-            width: min(90%, 400px)  ;
-            height: 40vh;
+            max-width: min(90%,400px);
+            max-height: 50vh;
+            min-height: 40vh;
             border:none;
             padding: 30px;
             border-radius: 40px;
             backdrop-filter: blur(20px);
             background-color:rgba(255, 55, 108, 0.601);
             gap: 35px;
+            flex-grow: 1;
         }
         #main h1{
             color: rgb(247, 247, 247);
@@ -64,6 +66,12 @@
             position: absolute;
             right: -90px;
         }
+        #message{
+            display: none;
+            text-align: center;
+            color: white;
+            font-family: Arial, Helvetica, sans-serif;
+        }
     </style>
 </head>
 <body>
@@ -74,6 +82,9 @@
             <button id="yes">YES ❣</button>
             <button id="no">NO 💔</button>
         </div>
+        <div id="message">
+            <h2>“I promise this YES will always be safe with me 🌸💖”</h2>
+        </div>
     </div>
     <script>
         window.onload=()=>{
@@ -83,11 +94,13 @@
         const yesbtn=document.getElementById('yes');
         const nobtn=document.getElementById('no');
         const herotext=document.getElementById('hero');
+        const msg=document.getElementById('message');
+
         let panic
         yesbtn.onclick=()=>{
             herotext.textContent='“Come here… my heart’s been waiting for you 💕”';
             songlove.play()
-            alert("“I promise this YES will always be safe with me 🌸💖”");
+            msg.style.display='block';
         };
         const moveno=()=>{
             const x=(Math.random()-0.5)*400;
