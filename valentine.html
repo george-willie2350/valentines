@@ -72,6 +72,26 @@
             color: white;
             font-family: Arial, Helvetica, sans-serif;
         }
+        #moye{
+            position: absolute;
+            bottom: 20px;
+            left: 20px;
+            font-size: large;
+            font-family: Arial, Helvetica, sans-serif;
+            color: #ff9ac3;
+        }
+        #chirpsfall{
+            display: flex;
+            gap: 30px;
+        }
+        .chirp{
+            display: none;
+            position: absolute;
+            background-color: blue;
+            top:0;
+            width: 10px;
+            height: 15px;
+        }
     </style>
 </head>
 <body>
@@ -83,19 +103,19 @@
             <button id="no">NO 💔</button>
         </div>
         <div id="message">
-            <h2>“I promise this YES will always be safe with me 🌸💖”</h2>
+            <h3>“I promise this YES will always be safe with me 🌸💖”</h3>
         </div>
     </div>
+    <footer id="moye">
+        <a>Made with unlimited love 💝</a>
+    </footer>
     <script>
-        window.onload=()=>{
-            alert("⚠ Made with love play Carefully !");
-        }
         const songlove=new Audio("New_Project.mp3");
         const yesbtn=document.getElementById('yes');
         const nobtn=document.getElementById('no');
         const herotext=document.getElementById('hero');
         const msg=document.getElementById('message');
-
+        const piece=document.getElementsByClassName('chirp');
         let panic
         yesbtn.onclick=()=>{
             herotext.textContent='“Come here… my heart’s been waiting for you 💕”';
@@ -113,13 +133,22 @@
                 panic=setInterval(moveno,60);
             }
         }
+        // const falling=()=>{
+        //     piece.style.display='block';
+        //     for(let i=0;i<710;i+=10){
+        //         piece.style.transform=`translateY(${i}px) rotate(${Math.random()*90-i}deg)`;
+        //     }
+        // }
         const stopp=()=>{
             clearInterval(panic);
             panic=null;
         }
+        const movenoint=()=>{
+            setTimeout(startp,100);
+        }
         nobtn.addEventListener("mouseover", startp);
         nobtn.addEventListener('mouseleave',stopp);
-        nobtn.addEventListener("touchstart", startp);
+        nobtn.addEventListener("touchstart", movenoint);
     </script>
 </body>
 </html>
